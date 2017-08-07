@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RestaurantGo</title>
+    <script src = "js/firebaseAuth.js"></script>
+    <script src = "js/firebaseDatabase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Satisfy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel= 'stylesheet' href= 'css/style.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css'>
+    <!-- Compiled and minified JavaScript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js'></script>
+    <meta name='viewport' content='initial-scale=1.0, user-scalable=no'>
+    <meta charset='utf-8'>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 90%;
+        margin: 200;
+        padding: 10;
+      }
+    </style>
+    
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD2MkC1sfePDl__0dvHQudZL2r42EmP9Dk",
+        authDomain: "food-project-ebea1.firebaseapp.com",
+        databaseURL: "https://food-project-ebea1.firebaseio.com",
+        projectId: "food-project-ebea1",
+        storageBucket: "food-project-ebea1.appspot.com",
+        messagingSenderId: "373070343577"
+      };
+      firebase.initializeApp(config);
+    </script>
+  </head>
+  <body>
+    <div class= "navbar-fixed">
+        <nav class= "teal darken-2 navbar navbar-default">
+                <div class="nav-wrapper">
+                  
+                    <a href="/home" class="left brand-logo" id= "logoName"><font size= "10">GoGrocery</font></a>
+                    <ul id="nav-mobile" class="right">
+                        <li class= "navtext  hide-on-med-and-down" id= "third"><a href="#"><font color= "white" size= "4">Find A Person</font></a></li>
+                        <li class= "navtext" id= "fourth"><a href="/signup" ><font color= "white" size="4">Sign Up</font></a></li>
+                        <li onclick={signInWithGoogle()} class= "navtext" id= "login-button"><font color= "white" size="4">Log In</font></li>
+                        <li><img id= "google-small-pic" src = "http://www.idyllwildarts.org/wp-content/uploads/2016/09/blank-profile-picture.jpg" /></li>
+                        <hr />
+                    </ul>
+                </div>
+        </nav>
+    </div> 
+    <div class="container">
+        <h1 id= "findAGrocery"><center>Welcome! Find a Grocery!</center></h1>
+        <form>
+            <p> Enter item here:
+                <input name = 'location1' id = "location2"/>
+            </p>
+            
+            
+       </form>
+       <button type = 'button' id = "submitButton" ><center> Submit</center></button>
+   </div>
+   <br/>
+    <div id='map'></div>
+    
+    <script>
+        var pos
+        var map, infoWindow;
+       
+       
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 15
+          });
+          //infoWindow = new google.maps.InfoWindow;
+          
+          // Try HTML5 geolocation.
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+              pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+              };
+              
+            
+
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map
+              });
+              
+              map.setCenter(pos);
+              
+ 
+              
+              document.getElementById('submitButton').onclick = function() {getStoreLocation()}
+             
+ 
+            }, function() {
+              handleLocationError(true, infoWindow, map.getCenter());
+            });
+            
+          } else {
+            // Browser doesn’t support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+          }
+          
+          
+        }
+ 
+       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(browserHasGeolocation ?
+                                'Error: The Geolocation service failed.' :
+                                'Error: Your browser doesn\‘t support geolocation.');
+          infoWindow.open(map);
+        }
+        
+      function getStoreLocation(){
+              var input = document.getElementById('location2').value
+              console.log(input)
+              var apiKey = 'AIzaSyDUWTdknyhqy6iOYA4y8zbR6FJN_tamIaA'
+              var url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${pos.lat},${pos.lng}&radius=500&keyword=${input}&key=${apiKey}`              
+            
+              fetch(url)
+              .then(function(data){
+                return data.json()
+            //to actually get the data and not the promise, write above and below
+              })
+              .then(function(json){
+                console.log(json)
+                var locationArray = json.results
+                console.log(locationArray)
+                for (i=0; i< locationArray.length; i++) {
+                  var latitudeOfInput_i = json.results[i].geometry.location.lat
+                  var longitudeOfInput_i = json.results[i].geometry.location.lng
+                  var pos_i = {
+                    lat: latitudeOfInput_i,
+                    lng: longitudeOfInput_i
+                  };
+                  var marker_i = new google.maps.Marker({
+                    position: pos_i,
+                    map: map
+                  });
+                }
+              })
+      }
+
+   </script>
+   <div id = "chatwee-root"></div>
+
+    <script async defer
+        src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBE_eM_zuZbK1AL_3_yBApX-o9bZClXmKc&callback=initMap'>
+    </script>
+
+   <script src="https://chatwee-api.com/v2/script/59808d9dbd616d930f60d922.js"></script>
+    
+
+ </body>
+
+</html>

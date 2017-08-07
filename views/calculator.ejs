@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name='viewport' content='initial-scale=1.0, user-scalable=no'>
+        <meta charset='utf-8'>
+        
+        <title>RestaurantGo</title>
+         <script src = "js/calculator.js"></script>
+       <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+      
+        <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Oxygen" rel="stylesheet">
+        
+        <link rel= 'stylesheet' href= 'css/style.css'>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css'>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js'></script>
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+        <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyD2MkC1sfePDl__0dvHQudZL2r42EmP9Dk",
+            authDomain: "food-project-ebea1.firebaseapp.com",
+            databaseURL: "https://food-project-ebea1.firebaseio.com",
+            projectId: "food-project-ebea1",
+            storageBucket: "food-project-ebea1.appspot.com",
+            messagingSenderId: "373070343577"
+          };
+          firebase.initializeApp(config);
+        </script>
+    </head>
+    <body>
+     <ul id="slide-out" class="side-nav" style= "background-color: teal">
+      <li><div class="user-view">
+        <div class="background" color = "#FF6600">
+        </div>
+        <div class = "ourInfo">
+          <center><a  href="/"><img id ="logo" src="images/logo.png"></a>
+          <!--<p><font size = "5" id= "logoname">RestaurantGO</font></p>-->
+          </center>
+        </div>
+        <div class = "userInfo">
+          <center><a  href="#!user"><img id ="google-small-pic" class="circle"  src="images/blank-profile-picture.png"></a>
+          </center>
+          
+          <a href="#!name"><span class="white-text name"></span></a>
+          <a href="#!email"><span class="white-text email"></span></a>
+        </div>
+      </div></li>
+      <li class = "btn deep-orange lighten-1" id= "login-button" onclick = {signInWithGoogle()}><a href="#!"></a></li>
+      <li id= "sharelocationbutton" onclick = {} style = "display:none; visibility:hidden"><a href="#!"  >Share Your Location</a></li>
+      <li id= "calculate-button" onclick = {}><a href="/calculate" >Calculate Cost of Shared Meal</a></li>
+      <li id= "calculate-button" onclick = {}><a href="/profile" >See your profile</a></li>
+      <!--<li id= "login-button" onclick = {signInWithGoogle()}><a href="#!"><i class="material-icons">cloud</i>L</a></li>-->
+      <!--<li><a href="#!">Second Link</a></li>-->
+      <li><div class="divider"></div></li>
+    </ul>
+    
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="medium material-icons icon-black">menu</i></a>
+    <script>
+       // Initialize collapse button
+      $(".button-collapse").sideNav();
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      //$('.collapsible').collapsible();
+    </script>
+        
+        <div class="container">
+            <h1 id= "findAGrocery"><center>Share and Split</center></h1>
+            <h2 id = "calculatesubheading"><font size= "4" color = "#FF6600"><center>Enter the price of the meal you want to share and we'll split the price for you!</center></font></h2>
+              <div class="row">
+    <form class="col s12">
+      <div class="row">
+       <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+         
+          <input value="$" id="price" type="text" class="validate">
+          <label class="active" for="first_name2">Enter the total price (including tax) of the meal here</label>
+
+        </div>
+      </div>
+      <div class = "row">
+        <div class="input-field col s12">
+        <input id="people" type="text" class="validate">
+          <label class="active" for="first_name2">Enter the number of people splitting the meal</label>
+          <button type="button" id = "submit" onclick={splitPrice()}>Submit</button>
+          </div>
+      </div>
+       
+      <div class = "row" id= "paydiv">
+         <div class="input-field col s12">
+        <p id= "firstpay"><center> </center></p>
+      </div>
+      </div>
+        
+    </form>
+  </div>
+        </div>
+         <script src = "js/firebaseAuth.js"></script>
+    </body>
+</html>

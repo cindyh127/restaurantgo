@@ -1,0 +1,32 @@
+#heading {
+    font-family: 'Bowlby One SC', cursive;
+}
+
+#form{
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+#main-image{
+    border-radius: 50%;
+}
+
+/*#container{*/
+/*  position: absolute;*/
+/*  top: 25px;*/
+/*  left: 25px;*/
+/*}*/
+/*#small-image {*/
+/*  z-index: 1;*/
+/*}*/
+/*#main-image{*/
+/*  z-index: 3;*/
+/*}*/
+
+#google-small-pic{
+   margin-bottom: 30px;
+   border-radius: 50%;
+    
+    
+}
+

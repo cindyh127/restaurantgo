@@ -1,0 +1,117 @@
+
+ html {
+    font-family: 'Didact Gothic', sans-serif;
+  }
+
+body {
+    background-color: #efebe9;
+}
+
+.brand-logo{
+    font-family: 'Satisfy', cursive;
+    left: 3%;
+   
+
+}
+
+.navtext {
+    font-family: 'Oxygen', sans-serif;
+    
+}
+
+.calculatesubheading {
+    font-family: 'Oxygen', sans-serif;
+}
+
+#logoname{
+    font-family: 'Bowlby One SC', cursive;
+}
+#location2 {
+
+    
+    
+}
+i.icon-blue {
+    color: blue;
+}
+
+.side-nav{
+    background-color: #FF6600;
+}
+
+#slogan{
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+#fourth {
+    position:absolute;
+    top:1%;
+    right: 10%;
+}
+
+#third {
+    position: absolute;
+    top: 1%;
+    right: 18%;
+}
+
+#findAGrocery{
+    font-family: 'Bowlby One SC', cursive;
+}
+
+#login{
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+#table {
+  position: absolute;
+  width: 650px;
+  height: auto;
+  
+  top: 15%;
+  left: 27%;
+  
+  background: #ffe0b2;
+  border-style: solid;
+  border-color: #C4421A;
+
+}
+
+
+
+.loginBody{
+background:
+    /* top, transparent black, faked with gradient */ 
+    linear-gradient(
+      rgba(0, 0, 0, 0.1), 
+      rgba(0, 0, 0, 0.1)
+    ),
+    /* bottom, image */
+     url(https://image-gr.s3.envato.com/files/80235251/preview.jpg); 
+
+
+}
+
+#loginHeading{
+    font-family: 'Satisfy', cursive;
+    color: #00796b;
+}
+
+#google-small-pic{
+                width: auto;
+                height: 60px;
+                border-radius: 50%;
+                padding-top: 5px;
+                margin-right: 10px;
+            }
+#login-button{
+    margin-left: 85px;
+    margin-top: -20px
+}
+#sharelocationbutton{
+     margin-left: 50px;
+}
+#calculate-button{
+    margin-left: 25px;
+}
+
