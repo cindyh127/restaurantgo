@@ -113,12 +113,7 @@
                 lng: position.coords.longitude
               };
               
-              var string = 'See their profile'
-              var contentString = string.link('https://food-project-debjanidas.c9users.io/profile')
-            
-              var infowindow = new google.maps.InfoWindow({
-                content: contentString
-              });
+              
             
              
              
@@ -129,10 +124,10 @@
                 map: map
                
               });
-              marker.addListener('click', function() {
-                infowindow.open(map, marker);
-              });
-              infowindow.open(map,marker);
+              // marker.addListener('click', function() {
+              //   infowindow.open(map, marker);
+              // });
+              //infowindow.open(map,marker);
               
                
              document.getElementById('sharelocationbutton').onclick = function(){

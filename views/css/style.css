@@ -109,9 +109,17 @@ background:
     margin-top: -20px
 }
 #sharelocationbutton{
-     margin-left: 50px;
+     margin-left: 10px;
 }
 #calculate-button{
     margin-left: 25px;
+}
+
+#debby{
+    border-radius: 50%;
+}
+
+#cindy{
+    border-radius: 50%;
 }
 

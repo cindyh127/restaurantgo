@@ -66,49 +66,11 @@ function signInWithGoogle() {
             console.log(error)
         })
 }
-function googleTranslateElementInit() {
-          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
-        }
-        
 
 
 
-            // Script to open and close sidebar
-            function w3_open() {
-                document.getElementById("mySidebar").style.display = "block";
-                document.getElementById("myOverlay").style.display = "block";
-            }
-             
-            function w3_close() {
-                document.getElementById("mySidebar").style.display = "none";
-                document.getElementById("myOverlay").style.display = "none";
-            }
-            // Accordion 
-            function myAccFunc() {
-                var x = document.getElementById("demoAcc");
-                if (x.className.indexOf("w3-show") == -1) {
-                    x.className += " w3-show";
-                }
-                else {
-                    x.className = x.className.replace(" w3-show", "");
-                }
-            }
 
-            // Click on the "Jeans" link on page load to open the accordion for demo purposes
-            document.getElementById("myBtn").click();
-
-
-            
-            function adjustPaddingOfBody(){
-                var w = window.innerWidth;
-                var h = window.innerHeight;  
-                
-                if (w < 800) {
-                    document.body.setAttribute('style', "background-image: url(images/skyline.jpg); background-repeat: no-repeat; background-size: cover; min-height: 100vh;padding-left: 0px")
-                } else if (w > 800) {
-                    document.body.setAttribute('style', "background-image: url(images/skyline.jpg); background-repeat: no-repeat; background-size: cover; min-height: 100vh;padding-left: 250px")
-                }
-            }
-            
-            window.onresize = adjustPaddingOfBody
-            adjustPaddingOfBody()
+var object = document.getElementById('debby')
+object.addEventListener("mouseover", function(){
+    object.style.opacity = 0.5
+});

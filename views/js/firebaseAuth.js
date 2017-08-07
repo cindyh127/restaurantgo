@@ -1,3 +1,6 @@
+var string = 'See their profile'
+var contentString = string.link('https://food-project-debjanidas.c9users.io/profile')
+
 function checkIfLoggedIn() {
     var database = firebase.database()
 
@@ -169,14 +172,22 @@ function getUserLocations() {
                                 lat: latitude,
                                 lng: longitude
                             }
+                            
+                        
+                            var infowindow = new google.maps.InfoWindow({
+                              content: contentString
+                            });
+                            
+                            console.log(infowindow)
                             var marker_i = new google.maps.Marker({
                                 position: pos_i,
                                 title: userName,
                                 map: map
                             })
-                            //  marker.addListener('click', function() {
-                            //   infowindow.open(map, marker);
-                            // });
+                             marker_i.addListener('click', function() {
+                              infowindow.open(map, marker_i);
+                            });
+                           
                         }
                     })
                     console.log(userLocationsArray)

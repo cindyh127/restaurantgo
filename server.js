@@ -49,6 +49,10 @@ app.get('/home1', function(request,response){
     response.render('home1.ejs')
 })
 
+app.get('/about', function(request,response){
+    response.render('about.ejs')
+})
+
 
 app.post('/', function(request,response){
 

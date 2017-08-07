@@ -1,69 +1,109 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <script src="https://chatwee-api.com/v2/script/59869554bd616d143b60d902.js"></script>
-    <title>Info Wise App</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <script src="https://www.gstatic.com/firebasejs/4.1.5/firebase.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDbWEVudTylVrB4vKAzY72Vn0uYd_njriY",
-            authDomain: "info-wise.firebaseapp.com",
-            databaseURL: "https://info-wise.firebaseio.com",
-            projectId: "info-wise",
-            storageBucket: "info-wise.appspot.com",
-            messagingSenderId: "441500702588"
-        }
-        firebase.initializeApp(config);
-    </script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!--Compiled and minified CSS -->
-    <link rel="stylesheet" href="css/materialize.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Compiled and minified JavaScript -->
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        .w3-sidebar a {
-            font-family: "Roboto", sans-serif
-        }
+  <head>
+    <title>RestaurantGo</title>
+    <link rel="icon" href="images/logo.png">
 
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .w3-wide {
-            font-family: "Montserrat", sans-serif;
-        }
-        
-    </style>
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>    
-</head>
-
-<body style = "background-image: url(images/skyline.jpg); background-repeat: no-repeat; background-size: cover; min-height: 100vh" id="wholeThang" style = "padding-left: 250px">
-    <!--<body  style="max-width:1200px">-->
-    <!--<img  id = "google-small-pic" class="circle" src="images/blank-profile-picture.jpg">-->
-    <!--<img  id = "google-pic" class="circle" src="images/blank-profile-picture.jpg">-->
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Oxygen" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel= 'stylesheet' href= 'css/style.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css'>
+    <!-- Compiled and minified JavaScript -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js'></script>
+    <meta name='viewport' content='initial-scale=1.0, user-scalable=no'>
+    <meta charset='utf-8'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
-        <!-- Sidebar/menu -->
-        <center>
-        <h1 style = "color: #FFFFFF;margin-top: 100px"><b>smart</b>fam</h1>
+    <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD2MkC1sfePDl__0dvHQudZL2r42EmP9Dk",
+        authDomain: "food-project-ebea1.firebaseapp.com",
+        databaseURL: "https://food-project-ebea1.firebaseio.com",
+        projectId: "food-project-ebea1",
+        storageBucket: "food-project-ebea1.appspot.com",
+        messagingSenderId: "373070343577"
+      };
+      firebase.initializeApp(config);
+    </script>
+             
+  </head>
+<body style = "background-image: url(images/food-background-ppt-6.jpg); background-repeat: no-repeat; background-size: cover; min-height: 100vh"></body>
+      
+    <ul id="slide-out" class="side-nav" style= "background-color: teal">
+      <li><div class="user-view">
+        <div class="background" color = "#FF6600">
+        </div>
+        <div class = "ourInfo">
+          <center><a  href="/"><img id ="logo" src="images/logo.png"></a>
+          <!--<p><font size = "5" id= "logoname">RestaurantGO</font></p>-->
+          </center>
+        </div>
+        <div class = "userInfo">
+          <center><a  href="#!user"><img id ="google-small-pic" class="circle"  src="images/blank-profile-picture.png"></a>
+          </center>
+          
+          <a href="#!name"><span class="white-text name"></span></a>
+          <a href="#!email"><span class="white-text email"></span></a>
+        </div>
+      </div></li>
+      <li class = "btn deep-orange lighten-1" id= "login-button" onclick = {signInWithGoogle()}><a href="#!"></a></li>
+      <li id= "calculate-button" onclick = {}><a href="/about" >About Us</a></li>
+      <li id= "sharelocationbutton" onclick = {} style = "display:none; visibility:hidden"><a href="#!"  >Share Your Location</a></li>
+      <li id= "calculate-button" onclick = {}><a href="/calculate" >Calculate Cost of Shared Meal</a></li>
+      <li id= "calculate-button" onclick = {}><a href="/profile" >See your profile</a></li>
+      <!--<li id= "login-button" onclick = {signInWithGoogle()}><a href="#!"><i class="material-icons">cloud</i>L</a></li>-->
+      <!--<li><a href="#!">Second Link</a></li>-->
+      <li><div class="divider"></div></li>
+    </ul>
+    
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="medium material-icons icon-black">menu</i></a>
+    <script>
+       // Initialize collapse button
+      $(".button-collapse").sideNav();
+      // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+      //$('.collapsible').collapsible();
+    </script>
+    
+   
+    
+    
+    
+   
+
+
+    
+   <script src="https://chatwee-api.com/v2/script/59808d9dbd616d930f60d922.js"></script>
+    <center>
+        <h1 style = "color: #FFFFFF;margin-top: 100px">RestaurantGo</h1>
         <h5 style = "color: #FFFFFF;margin-top: 20px">Our mission:</h5>
         </center>
-        <b><p style = "color: #FFFFFF; margin-top: 20px; margin-right:70px;margin-left:70px">SmartFam is an app that makes finding extracurricular programs easier and faster. We give our users access to an organized database of outside-of-school activities with opinions given by parents.</h5>
-        </p></b>
+        <p style = "color: #FFFFFF; margin-top: 20px; margin-right:400px;margin-left:400px">We believe that food is an important part of people's daily lives, and meals are even better with someone to share them with. That's why we let users view restaurants or cafes nearby and search up users in the vicinity to turn a lonely breakfast, lunch, or dinner into a meaningful experience.</h5>
+        </p></center>
+         <h5 style = "color: #FFFFFF;margin-top: 20px; margin-right:400px; margin-left:740px">Who we are:</h5>
         
+        <center><p style = "color: #FFFFFF; margin-top: 20px; margin-right:400px;margin-left:400px">We are two high schoolers who want to make finding restaurants and friends easier and more efficient. We hope our app helps users save money, get great food so that their meals wind up better than they would be, and make new friends or meet up with old ones. </h5>
+        </p></center>
+        <center>
+            <div id = "us">
+                <img id = "debby" src = "images/smaller pic of me.png" height = "200px" width = "200px" alt = "Debjani Das">
+                
+                <img id = "cindy" src = "images/IMG_2916.jpg" height = "200px" width = "200px" alt = "Cindy Hernandez">
+            
+            </div>
+            
+        </center>
+        <!--<h5 style = "color: #FFFFFF;margin-top: 20px">Our mission:</h5>-->
          <script src="js/about.js"></script>
-</body>
+         <div id = "chatwee-root"></div>
+         <script src="https://chatwee-api.com/v2/script/59869554bd616d143b60d902.js"></script>
+         
+        <script src = "js/firebaseAuth.js"></script>
+        <script src = "js/firebaseDatabase.js"></script>
+         
+
+ </body>
 
 </html>
